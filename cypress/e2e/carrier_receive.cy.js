@@ -12,7 +12,7 @@ describe('承运商运输',()=>{
     cy.title().should("include","TPL")
     cy.contains("财务管理").click()
     cy.contains("承运商结算").click()
-    cy.contains("付款管理").click()
+    // cy.contains("付款管理").click()
 
     
 })
