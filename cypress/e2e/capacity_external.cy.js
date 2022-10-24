@@ -35,7 +35,8 @@ describe('外协运力',()=>{
     cy.get("[data-testid='create-drivers-name']").type("司机姓名1")
     cy.get("[data-testid='create-drivers-phone']").type("16111111111")
     cy.get(".ant-select-selection-overflow").click({force: true} )
-    cy.get('#vehicles_list + div').contains("京" + data).click()
+
+    // cy.get('#vehicles_list + div').contains("京" + data).click()
     cy.contains("确 定").click()
 
 
