@@ -76,7 +76,7 @@ describe('外协运输',()=>{
     cy.contains("财务管理").click()
     cy.contains("受理单结算").click()
     cy.contains("对账管理").click()
-    cy.wait(3000)
+
     cy.contains("知道了").click()
     
     cy.get(".ant-table-tbody >tr:nth-child(1) >td button").click()
