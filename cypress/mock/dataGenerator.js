@@ -14,7 +14,7 @@ function generateUsers(){
         address.push({
             "id":i,
             "city":faker.address.city(),
-            "streename":faker.address.streename()
+            "streetname":faker.address.streetName()
         })
     }
     return {"user":user,"address":address}
