@@ -22,5 +22,6 @@ describe('承运商核销',()=>{
     cy.contains("确认核销").click()
 
 })
+
 })
      

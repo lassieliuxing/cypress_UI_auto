@@ -8,7 +8,7 @@ class login{
     code(){
         return cy.get('#code')
     }
-    submint(){
+    submit(){
         return cy.get("[data-testid='signin-sumbit-button']")
     }
 
