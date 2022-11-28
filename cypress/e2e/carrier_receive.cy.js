@@ -3,11 +3,15 @@ import Login from '../integration/page/login'
 describe('承运商运输',() => {
    
     const login=new Login()
+    before(() => {
+        cy.clearLocalStorageSnapshot();
+      });
     beforeEach(function(){
         cy.restoreLocalStorage()
         cy.fixture('userlogin').then((user) => {
             this.user = user
         })
+       
     
     })
     afterEach(function(){
@@ -22,6 +26,7 @@ describe('承运商运输',() => {
         login.code().type(this.user.code)
         login.submit().click()           
         cy.title().should("include","TPL")
+        cy.wait(1000)
     })
 
         // it("登录2",()=>{
@@ -37,7 +42,8 @@ describe('承运商运输',() => {
         // })
     
 
-     it("承运商付款",()=>{
+     it("承运商付款",function(){
+        cy.getLocalStorage()
         cy.contains("财务管理").click()
         cy.contains("承运商结算").click()
         cy.contains("付款管理").click()
@@ -52,8 +58,9 @@ describe('承运商运输',() => {
 
 
 
-   it("承运商核销",()=>{
-
+   it("承运商核销",function(){
+    cy.pause()
+    cy.wait(1000)
     cy.contains("对账管理").click()
     cy.contains("对账核销").click()
     // cy.get(".ant-tabs-nav-list >div:nth-child(2) >#rc-tabs-0-tab-CARRIER_PENDING_STATEMENT").click()
