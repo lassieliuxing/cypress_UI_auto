@@ -1,12 +1,17 @@
 import Login from '../integration/page/login'
+
 describe('承运商运输',() => {
    
     const login=new Login()
     beforeEach(function(){
+        cy.restoreLocalStorage()
         cy.fixture('userlogin').then((user) => {
             this.user = user
         })
-        cy.preserveAllCookiesOnce()
+    
+    })
+    afterEach(function(){
+        cy.saveLocalStorage()
     })
     
     it("登录1",function() {
@@ -48,6 +53,7 @@ describe('承运商运输',() => {
 
 
    it("承运商核销",()=>{
+
     cy.contains("对账管理").click()
     cy.contains("对账核销").click()
     // cy.get(".ant-tabs-nav-list >div:nth-child(2) >#rc-tabs-0-tab-CARRIER_PENDING_STATEMENT").click()
